@@ -1,0 +1,6 @@
+Oracle
+ create table employee(eno number(4)primary key, ename varchar2(100), desig varchar2(100), sal number(6,2));
+
+ * Mysql :
+ * 
+mysql> create table employee(eno int,ename char(20),desig char(20),sal float);
