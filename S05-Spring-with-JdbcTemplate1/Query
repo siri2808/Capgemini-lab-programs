@@ -1,0 +1,12 @@
+Mysql :
+mysql> create table employee_jdbc(eno int,ename char(20),desig char(20),sal int, 
+primary key(eno));
+
+
+
+
+Oracle:
+
+
+SQL>create table employee_jdbc(eno number(6),ename varchar2(10),desig varchar2(10),
+    sal number(10));

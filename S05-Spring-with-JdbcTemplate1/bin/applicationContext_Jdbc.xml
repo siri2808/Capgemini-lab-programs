@@ -1,0 +1,46 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+ <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>oracle.jdbc.driver.OracleDriver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:oracle:thin:@localhost:1521:XE</value>
+		</property>
+		<property name="username">
+			<value>capgdb</value>
+		</property>
+		<property name="password">
+			<value>capgdb</value>
+		</property>
+		<property name="initialSize">
+			<value>5</value>
+		</property>
+		<property name="maxActive">
+			<value>10</value>
+		</property>
+	</bean>
+
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<!-- constructor based IOC -->
+		<constructor-arg>
+			<ref bean="dataSource" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="empDaoImpl" class="EmployeeDaoImpl">
+		<!-- setter based injection -->
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+</beans>
+<!--
+
+    jdbcTemplate  = datasource +employeedaoImpl
+
+
+
+
+-->
